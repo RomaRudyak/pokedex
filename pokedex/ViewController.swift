@@ -26,9 +26,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 			return cell
 		}
 		
-		let newCell = PokeCell()
-		
-		return newCell
+		return UICollectionViewCell()
 	}
 	
 	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
