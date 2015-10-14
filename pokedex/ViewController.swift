@@ -85,6 +85,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 	
 	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 		
+		let poke: Pokemon! = inSearchMode
+			? filteredPokemons[indexPath.row]
+			: pokemons[indexPath.row]
+		
+		performSegueWithIdentifier("PokemonDetailsViewController", sender: poke)
+		
 	}
 	
 	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -113,6 +119,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 			filteredPokemons = pokemons.filter({$0.name.rangeOfString(lower) != nil})
 		}
 		collection.reloadData()
+	}
+	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		if segue.identifier == "PokemonDetailsViewController" {
+			if let controller = segue.destinationViewController as? PokemonDetailsViewController {
+				if let poke = sender as? Pokemon {
+					controller.pokemon = poke
+				}
+			}
+		}
 	}
 
 	@IBAction func onToggelMusic(sender: UIButton!) {
