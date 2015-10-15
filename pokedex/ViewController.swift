@@ -44,6 +44,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 				let name = row["identifier"]!
 				let poke = Pokemon(name: name, pokedexId: pokeId)
 				
+				var t = "\(name)"
+				
 				pokemons.append(poke)
 			}
 			
