@@ -12,6 +12,17 @@ class PokemonDetailsViewController: UIViewController {
 
 	
 	@IBOutlet weak var nameLbl: UILabel!
+	@IBOutlet weak var mainImagView: UIImageView!
+	@IBOutlet weak var descriptionLbl: UILabel!
+	@IBOutlet weak var typelbl: UILabel!
+	@IBOutlet weak var defenceLbl: UILabel!
+	@IBOutlet weak var heightLbl: UILabel!
+	@IBOutlet weak var pokedexLbl: UILabel!
+	@IBOutlet weak var weightlbl: UILabel!
+	@IBOutlet weak var baseAttackLbl: UILabel!
+	@IBOutlet weak var currentEvoImg: UIImageView!
+	@IBOutlet weak var newtEvoImg: UIImageView!
+	@IBOutlet weak var evoLabl: UILabel!
 	
 	var pokemon: Pokemon!
 	
@@ -20,4 +31,7 @@ class PokemonDetailsViewController: UIViewController {
 		nameLbl.text = pokemon.name
 	}
 	
+	@IBAction func onDismissTapped(sender: AnyObject) {
+		dismissViewControllerAnimated(true, completion: nil)
+	}
 }
